@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>社員情報一覧</title>
+<link rel="stylesheet" href="../css/StyleSheet.css" type="text/css">
+<style type="text/css">
+body{
+    		background-image: url(../images/background.jpeg);
+    		background-size:cover;
+    		background-attachment: fixed;"
+    }
+</style>
+</head>
+<body>
+	<div class="div">
+		<img src="../images/manongba.png" align="top" width="147" height="76">
+		<font color="#750000" size="300%"> <b> 社員管理システム </b>
+		</font>
+	</div>
+	<hr/>
+	<br>
+	<br>
+
+	<div>
+		<h1>社員情報一覧</h1>
+	</div>
+	<br>
+	<div>
+		<form th:action="@{/emp/goAdd}">
+			<table>
+				<tr>
+					<td><input type="submit" value="社員登録" class="box5"></td>
+					</form>
+					<td>
+						<form th:action="@{/emp/goLogin}">
+							<table>
+								<button id="button1">ログアウト</button>							
+							</table>
+						</form>
+					</td>
+				</tr>
+			</table>
+	</div>
+	<br>
+	<br>
+	<div>
+		<form th:action="@{/emp/doSelect}">
+			<table border="0" cellspacing="0" cellpadding="25">
+				<tr>
+					<td>番号</td>
+					<td><input type="text" name="empCd"></td>
+					<td></td>
+					<td>名前</td>
+					<td><input type="text" name="name"></td>	
+				</tr>
+				<tr>
+					<td>誕生日</td>
+					<td><input type="text" name="birthday"></td>
+					<td></td>
+					<td>性別</td>
+					<td><input type="text" name="genderName"></td>
+				</tr>
+				<tr>	
+					<td>国籍</td>
+					<td><input type="text" name="nationalityName"></td>
+					<td></td>
+					<td></td>
+					<td height="40px"width="100px"><input type="submit" value="社員検索" ></td>											
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div>
+		<table border="0" cellspacing="0" cellpadding=25>
+			<tr>
+				<td class="box9">社員番号</td>
+				<td class="box9">名前</td>
+				<td class="box9">生年月日</td>
+				<td class="box9">性別</td>
+				<td class="box9">国籍</td>
+				<td class="box9">操作</td>
+			</tr>
+												
+			<tr th:each="emp:${emps.getList()}">
+				<td><a th:text="${emp.empCd}"th:href="@{/emp/goEmp(empCd=${emp.empCd})}"></a></td>
+				<td th:text="${emp.name}"></td>
+				<td th:text="${emp.birthday}"></td>
+				<td th:text="${emp.gender.genderName}"></td>
+
+				<td th:text="${emp.nationality.nationalityName}"></td>
+				<td>
+					<form th:action="@{/emp/goUpdate}">
+						<input type="hidden" name="empCd" th:value="${emp.empCd}">
+						<button>変更</button>
+					</form>
+					<form th:action="@{/emp/doDelete}">
+						<input type="hidden" name="empCd" th:value="${emp.empCd}">						
+						<button>削除</button>
+						
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<br>
+<div>
+		第<span th:text="${emps.getPageNum()}"></span>頁,全部<span th:text="${emps.getPages()}"></span>頁
+</div>
+<div>		
+		<a th:href="@{/emp/lastPage(page=${emps.getPageNum()-1},empCd=${empCd},name=${name},birthday=${birthday},genderName=${genderName},nationalityName=${nationalityName})}">前の頁</a>
+		&emsp;
+		<a th:href="@{/emp/nextPage(page=${emps.getPageNum()+1},empCd=${empCd},name=${name},birthday=${birthday},genderName=${genderName},nationalityName=${nationalityName})}">次の頁</a>	
+</div>	
+<br>	
+	<div>
+		<a href="https://www.coderbar.com/"> <font color="#7B7B7B">码农吧&emsp;©https://wwww.coderber.com
+		</font>
+		</a>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社員情報変更</title>
+    <link rel="stylesheet" href="../css/StyleSheet.css" type="text/css">
+    <style type="text/css">
+    body{
+    		background-image: url(../images/background.jpeg);
+    		background-size:cover;
+    		background-attachment: fixed;"
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="../images/manongba.png" align="top" width="147" height="76">
+        <font color="#750000" size="300%">
+            <b>社員管理システム</b>
+        </font>
+    </div>
+    <hr/>
+    <br>
+    <br>
+    <div>
+        <h1>社員情報変更</h1>
+    </div>
+    <br>
+    <div>
+        <form th:action="@{/emp/goLogin}">
+            <table>
+                <tr>
+                    <td><button class="box7">ログアウト</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <br>
+    <div>
+        <form th:action="@{/emp/doUpdate}">
+            <table border="0" cellspacing="0" cellpadding="30">
+                <tr>
+                    <td>社員番号</td>
+                    <td><input type="text" name="empCd" th:value = "${emp.empCd}"readonly="readonly"/></td>
+
+                </tr>
+                <tr>
+                    <td>名前</td>
+                    <td><input type="text" name="name" th:value = "${emp.name}"/></td>
+                </tr>
+                <tr>
+                    <td>性別</td>
+                    <td>
+                        <select name="genderCd">
+                            <option></option>
+                            <option name="genderCd" value="02" th:selected="${emp.genderCd eq '02'}">男性</option>
+                            <option name="genderCd" value="01" th:selected="${emp.genderCd eq '01'}">女性</option>
+                            <option name="genderCd" value="03" th:selected="${emp.genderCd eq '03'}">不明</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>生年月日</td>
+                    <td><input type="date" name="birthday"th:value=${emp.birthday}></td>
+                </tr>
+                <tr>
+                    <td>国籍</td>
+                    <td>
+                        <select name="nationalityCd">
+                            <option value="001" th:selectedCd="${emp.nationalityCd eq '001'}">中国</option>
+                            <option value="002" th:selectedCd="${emp.nationalityCd eq '002'}">日本</option>
+                            <option value="003" th:selectedCd="${emp.nationalityCd eq '003'}">アメリカ</option>
+                            <option value="004" th:selectedCd="${emp.nationalityCd eq '004'}">カナダ</option>
+                            <option value="005" th:selectedCd="${emp.nationalityCd eq '005'}">イギリス</option>
+                        </select>
+                    </td>
+                </tr>
+             </table> 
+   		</div>
+   		<div>
+                <tr>
+                   <td></td>
+                    <td>
+                    <input type="submit" value="確定" class="box2"/>&emsp;&emsp;                                      
+      				</form>
+      		
+                    <form th:action="@{/emp/goempList}">
+                         <input type="submit" value="戻る" class="box2">
+                    </form>
+                    </td>
+                </tr>
+			</div>	
+        
+        <span th:text="${error}"></span>
+   
+    <br>
+    <div>
+        　　<a href="https://www.coderbar.com/">
+            <font color="#7B7B7B">码农吧&emsp;©https://wwww.coderber.com </font>
+        </a>
+    </div>
+
+</body>
+</html>

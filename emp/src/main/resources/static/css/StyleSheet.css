@@ -1,0 +1,161 @@
+body {
+	background-color: rgb(158, 210, 228);
+}
+
+h1 {
+	
+	color: rgba(3, 39, 117, 0.671);
+}
+
+th {
+	color: rgba(7, 11, 206, 0.685);
+	font-size: 150%
+}
+
+td {
+	color: rgba(3, 39, 117, 0.671);
+	
+}
+
+select {
+	font-size: inherit;
+	width: 200px;
+	height: 30px;
+}
+
+button {
+	font-size: large;
+	color: rgb(232, 235, 235);
+	background-color: rgb(75, 156, 180);
+	border-radius:10px;
+}
+
+
+#button1 {
+	width: 130px;
+	height: 30px;
+	font-size: large;
+	color: rgb(232, 235, 235);
+	background-color: rgb(231, 191, 14);
+	
+}
+
+#button2 {
+	width: 130px;
+	height: 30px;
+	font-size: large;
+	color: rgb(232, 235, 235);
+	background-color: rgb(216, 154, 20);
+	margin-left: 420px;
+}
+
+div {
+	/*border: 1px solid rgb(124, 16, 16);*/
+	padding: 30px 0;
+	/*border: 3px solid green;*/
+	/* text-align: center;*/
+	display: flex;
+	align-items: flex;
+	justify-content: center;
+}
+
+
+input {
+	color: rgba(13, 3, 56, 0.671);
+	background-color: rgb(235, 245, 238);
+	font: size 2px;
+	width: 200px;
+	height: 30px;
+}
+
+.input {
+	font: size 2px;
+	width: 360px;
+	height: 30px;
+}
+
+#box {
+	width: 200;
+	height: 100;
+	border: 2px solid black;
+	padding: 600;
+	margin: 100px;
+	left: 90;
+}
+
+/*底部的确认返回按钮*/
+.box2 {
+	width: 60px;
+	height:50;
+	/*float:right;*/
+	border-radius:10px;
+}
+.box8 {
+    width: 60px;
+    border-radius:10px;
+}
+
+
+/*登出按钮*/
+.box3 {
+	width: 150px;
+	color: rgb(245, 244, 241);
+	background-color: orange;
+	margin-left: 1100px;
+}
+
+.box4 {
+	height: 40px;
+	width: 150px;
+	color: rgb(245, 244, 241);
+	background-color: rgb(74, 138, 190);
+	position: relative left 90px;
+	border-radius:10px;
+}
+
+.box5 {
+	width: 150px;
+	color: rgb(245, 244, 241);
+	background-color: green;
+	margin-left: 420px;
+	border-radius: 10px;
+}
+
+.box6 {
+	width: 150px;
+	color: rgb(31, 23, 2);
+	background-color: rgb(245, 250, 245);
+	margin-left: 420px;
+}
+
+.box7 {
+	width: 150px;
+	color: rgb(245, 244, 241);
+	background-color: rgb(209, 183, 38);
+	margin-left: 420px;
+	border-radius: 10px;
+	
+}
+.box9{
+	font-weight: 900;
+}
+.box10 {
+	width: 150px;
+	color: rgb(245, 244, 241);
+	background-color: green;
+	border-radius: 10px;
+}
+
+
+font.sample {
+	color: rgb(40, 194, 142);
+}
+
+.roundElement	{
+	border-radius: 10px;
+}
+
+.thick {font-weight: normal;font-size:150%;
+		color:Crimson;
+}
+}

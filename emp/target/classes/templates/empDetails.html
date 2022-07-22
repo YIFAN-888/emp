@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>社員情報詳細</title>
+<link rel="stylesheet" href="../css/StyleSheet.css" type="text/css">
+<style type="text/css">
+body{
+    		background-image: url(../images/background.jpeg);
+    		background-size:cover;
+    		background-attachment: fixed;"
+    }
+</style>
+</head>
+
+<body>
+	<div>
+		<img src="../images/manongba.png" align="top" width="147" height="76">
+		<font color="#750000" size="300%"> <b> 社員管理システム </b>
+		</font>
+	</div>
+	<hr />
+	<br>
+	<br>
+	<div>
+		<h1>社員情報詳細</h1>
+	</div>
+	<br>
+	<div>
+		<form th:action="@{/emp/goLogin}">
+			<table>
+				<tr>
+					<td><button id="button2">ログアウト</button></td>
+				</tr>
+			</table>
+
+		</form>
+	</div>
+	<br>
+	<div>
+		<form th:action="@{/emp/goempList}">
+			<table border="0" cellspacing="0" cellpadding="25">
+				<tr>
+					<td>社員番号</td>
+					<td><input type="text" th:value="${emp.empCd}" readonly="readonly"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>名前</td>
+					<td><input type="text" th:value="${emp.name}" readonly="readonly"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>性別</td>
+					<td><input type="text" th:value="${emp.gender.genderName}" readonly="readonly"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>生年月日</td>
+					<td><input type="text" th:value="${emp.birthday}" readonly="readonly"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>国籍</td>
+					<td><input type="text" th:value="${emp.nationality.nationalityName}" readonly="readonly"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td align="center"> 
+						<input type="submit" value="戻る" class="box8">
+					</td>
+					<td></td>
+				</tr>
+
+			</table>
+		</form>
+	</div>
+	<br>
+	<br>
+	<div class="div">
+		<a href="https://www.coderbar.com/"> <font color="#7B7B7B">码农吧&emsp;©https://wwww.coderber.com
+		</font>
+		</a>		
+	</div>
+</body>
+
+</html>

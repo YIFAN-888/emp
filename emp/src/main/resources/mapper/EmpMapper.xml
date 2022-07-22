@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coderbar.emp.mapper.EmpMapper">
+
+	<resultMap type="com.coderbar.emp.model.EmpData" id="emp">
+		<result property="empCd" column="emp_cd" />
+		<result property="name" column="name" />
+		<result property="genderCd" column="gender_cd" />
+		<result property="birthday" column="birthday" />
+		<result property="nationalityCd" column="nationality_cd" />
+		
+		<association property="nationality" javaType="com.coderbar.emp.model.Nationality">
+			<result property="nationalityName" column="nationality_name" />
+		</association>
+		
+		<association property="gender" javaType="com.coderbar.emp.model.Gender">
+			<result property="genderName" column="gender_name" />
+		</association>
+	</resultMap>
+
+	<select id="selectAllEmp" resultMap="emp">
+		select 
+				emp_cd,
+				name,
+				empdata.gender_cd,
+				birthday,
+				empdata.nationality_cd,				
+				nationality_name,
+				gender_name
+				from empdata join gender on empdata.gender_cd = gender.gender_cd
+				join nationality on empdata.nationality_cd = nationality.nationality_cd;
+	</select>
+	
+	<select id="selectDynamic" resultMap="emp">
+			select 
+				emp_cd,
+				name,
+				empdata.gender_cd,
+				birthday,
+				empdata.nationality_cd,				
+				nationality_name,
+				gender_name
+				from empdata join gender on empdata.gender_cd = gender.gender_cd
+				join nationality on empdata.nationality_cd = nationality.nationality_cd
+				<where>
+					<if test="empCd != null and empCd != ''">
+						and emp_cd = #{empCd} 
+					</if>
+					<if test="name != null and name != ''">
+						and name like concat('%', #{name}, '%') 
+					</if>
+					<if test="birthday != null and birthday != ''">
+						and to_char(birthday,'yyyy-MM-dd') like concat('%', #{birthday}, '%') 
+					</if>
+					<if test="genderName != null and genderName != ''">
+						and gender_name like concat('%', #{genderName}, '%') 
+					</if>
+					<if test="nationalityName != null and nationalityName != ''">
+						and nationality_name like concat('%', #{nationalityName}, '%') 
+					</if>
+				</where>
+	</select>
+	
+		<select id="selectByEmpCd" resultMap="emp">
+		select
+			emp_cd,
+			name,
+			empdata.gender_cd,
+			birthday,
+			empdata.nationality_cd,
+			gender_name,
+			nationality_name
+			from empdata join gender on empdata.gender_cd = gender.gender_cd
+			join nationality on empdata.nationality_cd = nationality.nationality_cd
+			where emp_cd = #{value} 
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

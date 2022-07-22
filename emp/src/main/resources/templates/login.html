@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社員管理システム</title>
+    <link rel="stylesheet" href="../css/StyleSheet.css" type="text/css">
+    <style type="text/css">
+        #box_1 {
+            font: size 3px;
+            width: 300px;
+            height: 30px;}
+        body{
+    		background-image: url(../images/background.jpeg);
+    		background-size:cover;
+    		background-attachment: fixed;"
+    }       
+    </style>
+    
+   
+   
+</head>
+<body>
+
+ <div>
+        <img src="../images/manongba.png" align="top" width="147" height="76">
+        <font color="#750000">
+            <b>
+                <font size="300%">社員管理システム</font>
+            </b>
+        </font>
+    </div>
+    <br>
+    <hr />
+    <div>
+        <h1>
+            <font color="#005AB5"border-radius: 10px;>ログイン</font>
+        </h1>
+    </div>
+    <br>
+    <div>
+        <form th:action="@{/emp/doLogin}"method="post">
+            <table>
+                <tr>
+                    <td><b>ユーザーID</b></td>
+                </tr>
+                <br>
+                <tr>
+                    <td>
+                        <input type="email" name="username" placeholder="Emailを入力してください">
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>パスワード</b></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="password" name="password">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="center">
+                        <input type="submit" value="ログイン" class="box4">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <br>
+    <div><span th:text="${error}" class=thick></span></div>
+    <br>
+    <div>
+        　　<a href="https://www.coderbar.com/">
+            <font color="#7B7B7B">码农吧&emsp;©https://wwww.coderber.com </font>
+        </a>
+    </div>
+
+</body>
+</html>

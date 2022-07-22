@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>欢迎来到首页</h1>
+	<table>
+		<tr>
+			<td>员工编号</td>
+			<td>员工姓名</td>
+			<td>生日日期</td>
+			<td>员工国籍</td>
+			<td>员工性别</td>
+		</tr>
+		
+		<tr th:each="emp:${emps}">
+		<td th:text="${emp.empCd}"></td>
+		<td th:text="${emp.name}"></td>
+		<td th:text="${emp.birthday}"></td>
+		<td th:text="${emp.nationalityCd}"></td>
+		<td th:text="${emp.genderCd}"></td>
+		<td>
+		<a href="#">修改</a>
+		<a href="#">删除</a>
+		</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社員情報登録</title>
+    <link rel="stylesheet" href="../css/StyleSheet.css" type="text/css">
+    <style type="text/css">
+    body{
+    		background-image: url(../images/background.jpeg);
+    		background-size:cover;
+    		background-attachment: fixed;"
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="../images/manongba.png" align="top" width="147" height="76">
+        <font color="#750000" size="300%">
+            <b>
+                社員管理システム
+            </b>
+        </font>
+    </div>
+    <hr />
+    <br>
+    <br>
+    <div>
+        <h1>社員情報登録</h1>
+    </div>
+    <!--用form声明一个退出登陆的按钮-->
+    <br>
+    <div>
+        <form th:action="@{/emp/goLogin}">
+            <table>
+                <tr>
+                    <td><button class="box7">ログアウト</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div><span th:text="${error}" class=thick></span></div>
+    <br>
+    <!--进行一个社员情报登陆的书写格式声明-->
+    <div>
+        <form th:action="@{/emp/doAdd}">
+            <table border="0" cellspacing="0" cellpadding="25">
+                <tr>
+                    <td>社員番号</td>
+                    <td><input type="text" name="empCd" />(※必须)</td>
+
+                </tr>
+                <tr>
+                    <td>名前</td>
+                    <td><input type="text" name="name"/>(※必须)</td>
+                </tr>
+                <tr>
+                    <td>性別</td>
+                    <td>
+                        <select name="genderCd">
+                            <option></option>
+                            <option name="genderCd" value="02">男性</option>
+                            <option name="genderCd" value="01">女性</option>
+                            <option name="genderCd" value="03">不明</option>
+                        </select>(※必须)
+                    </td>
+                </tr>
+                <tr>
+                    <td>生年月日</td>
+                    <td><input type="date" name="birthday">(※必须)</td>
+
+                </tr>
+                <tr>
+                    <td>国籍</td>
+                    <td>
+                        <select name="nationalityCd">
+                            <option value="001">中国</option>
+                            <option value="002" selected>日本</option>
+                            <option value="003">アメリカ</option>
+                            <option value="004">カナダ</option>
+                            <option value="005">イギリス</option>
+                        </select>(※必须)
+                    </td>
+                </tr>
+         </table> 
+    </div>
+              <div> 
+                <tr>
+                   <td></td>
+                    <td>
+                    <input type="submit" value="確定" class="box2">&emsp;&emsp;                                      
+      		</form>
+                    <form th:action="@{/emp/goempList}">
+                         <input type="submit" value="戻る" class="box2">
+                    </form>
+                    </td>
+                </tr>
+			</div>	
+<!--  -->
+    <br>
+    <br>
+    <div>
+        　　<a href="https://www.coderbar.com/">
+            <font color="#7B7B7B">码农吧&emsp;©https://wwww.coderber.com </font>
+        </a>
+    </div>
+</body>
+</html>
